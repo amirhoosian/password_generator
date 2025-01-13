@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassWord Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="password_generator_container">
+        <h1 class="header_text">Password Generator</h1>
+        <div class="show_password_container">
+          <h2 class="password">let's start</h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-files"
+          >
+            <path d="M20 7h-3a2 2 0 0 1-2-2V2" />
+            <path
+              d="M9 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l4 4v10a2 2 0 0 1-2 2Z"
+            />
+            <path d="M3 7.6v12.8A1.6 1.6 0 0 0 4.6 22h9.8" />
+          </svg>
+        </div>
+        <div class="options_generator_container">
+          <div class="strongprocessing">
+            <h2 class="strong_text">Character Length</h2>
+            <h3 class="strong_number">0</h3>
+          </div>
+          <div class="processing">
+            <input
+              type="range"
+              name="range"
+              id="processing_bar"
+              value="0"
+              min="0"
+              max="20"
+            />
+          </div>
+          <div class="checkboxes_container">
+            <label class="checkbox">
+              <p class="text">Include Uppercase Letters</p>
+              <input
+                type="checkbox"
+                name="IncludeUppercase"
+                id="IncludeUppercase"
+                value="IncludeUppercase"
+              />
+
+              <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">
+              <p class="text">Include Lowercase Letters</p>
+              <input
+                type="checkbox"
+                name="IncludeLowercase"
+                id="IncludeLowercase"
+                value="IncludeLowercase"
+              />
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox">
+              <p class="text">Include Numbers</p>
+              <input
+                type="checkbox"
+                name="IncludeNumbers"
+                id="IncludeNumbers"
+                value="IncludeNumbers"
+              />
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox">
+              <p class="text">Include Symbols</p>
+              <input
+                type="checkbox"
+                name="IncludeSymbols"
+                id="IncludeSymbols"
+                value="IncludeSymbols"
+              />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="result_text">
+            <p>STRENGTH</p>
+            <div class="strength_power_container">
+              <div class="strength_power"></div>
+              <div class="strength_power"></div>
+              <div class="strength_power"></div>
+              <div class="strength_power"></div>
+            </div>
+          </div>
+          <button type="button" class="generate_button">
+            GENERATE
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-right"
+            >
+              <path d="M18 8L22 12L18 16" />
+              <path d="M2 12H22" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
