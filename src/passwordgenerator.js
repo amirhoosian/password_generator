@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const processingBar = document.querySelector("#processing_bar");
   const passwordelement = document.querySelector(".password");
   const clipboardCopy = document.querySelector(".lucide.lucide-files");
-
+  const strongNumber = document.querySelector(".strong_number");
   const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
     );
     passwordelement.textContent = setpassword;
     updateStrengthMeter(passwordelement.textContent);
-    console.log(passwordelement.textContent);
+    strongNumber.textContent = passwordelement.textContent.length;
   });
 
   clipboardCopy.addEventListener("click", () => {

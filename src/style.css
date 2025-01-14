@@ -208,3 +208,7 @@ body {
   border: none;
   font-weight: bold;
 }
+
+.active {
+  background-color: red;
+}
