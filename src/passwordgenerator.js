@@ -8,6 +8,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
   const symbols = "!@#$%^&*()_+=-[]{}|;:',.<>?/";
+  const length = parseInt(processingBar.value, 10);
+  const useUppercase = document.querySelector("#IncludeUppercase").checked;
+  const useLowercase = document.querySelector("#IncludeLowercase").checked;
+  const useNumbers = document.querySelector("#IncludeNumbers").checked;
+  const useSymbols = document.querySelector("#IncludeSymbols").checked;
+
+  processingBar.addEventListener("input", () => {
+    strongNumber.textContent = processingBar.value;
+  });
 
   function getRandomCharacter(str) {
     return str[Math.floor(Math.random() * str.length)];
@@ -44,33 +53,32 @@ window.addEventListener("DOMContentLoaded", () => {
     return generatePassword;
   }
 
-  generateButton.addEventListener("click", () => {
-    const length = parseInt(processingBar.value, 10);
-    const useUppercase = document.querySelector("#IncludeUppercase").checked;
-    const useLowercase = document.querySelector("#IncludeLowercase").checked;
-    const useNumbers = document.querySelector("#IncludeNumbers").checked;
-    const useSymbols = document.querySelector("#IncludeSymbols").checked;
+  const isOptionsSelected =
+    useUppercase || useLowercase || useNumbers || useSymbols;
 
-    const setpassword = generatePasswords(
-      length,
-      useUppercase,
-      useLowercase,
-      useNumbers,
-      // eslint-disable-next-line prettier/prettier
-      useSymbols
-    );
-    passwordelement.textContent = setpassword;
-    updateStrengthMeter(passwordelement.textContent);
-    strongNumber.textContent = passwordelement.textContent.length;
-  });
-
-  clipboardCopy.addEventListener("click", () => {
-    const copyPassword = passwordelement.textContent;
-    navigator.clipboard.writeText(copyPassword).then(() => {
-      console.log(`'Password copied->'`);
+  if (isOptionsSelected && processingBar.value > 0) {
+    generateButton.addEventListener("click", () => {
+      const setpassword = generatePasswords(
+        length,
+        useUppercase,
+        useLowercase,
+        useNumbers,
+        // eslint-disable-next-line prettier/prettier
+        useSymbols
+      );
+      passwordelement.textContent = setpassword;
+      updateStrengthMeter(passwordelement.textContent);
     });
-  });
 
+    clipboardCopy.addEventListener("click", () => {
+      const copyPassword = passwordelement.textContent;
+      navigator.clipboard.writeText(copyPassword).then(() => {
+        console.log(`'Password copied->'`);
+      });
+    });
+  } else {
+    passwordelement.textContent = "Please select options";
+  }
   function updateStrengthMeter(inputPassword) {
     const strengthPowers = document.querySelectorAll(".strength_power");
     const strength = calculateStrength(inputPassword);
